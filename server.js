@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const items = require('./routers/api/items');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -12,6 +14,8 @@ mongoose
   .connect(db)
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
+
+  app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
